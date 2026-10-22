@@ -27,22 +27,8 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @PostMapping
-    public ResponseEntity<TaskResponse> createTask(@Valid @RequestBody TaskRequest request) {
-        TaskResponse created = taskService.createTask(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<TaskResponse>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getAllTasks());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<TaskResponse> getTaskById(@PathVariable Long id) {
-        return ResponseEntity.ok(taskService.getTaskById(id));
-    }
-
+    
+  
     @PutMapping("/{id}")
     public ResponseEntity<TaskResponse> updateTask(@PathVariable Long id,
                                                    @Valid @RequestBody TaskRequest request) {
